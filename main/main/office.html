@@ -1,0 +1,1269 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ôn Tập Học Máy – Tài liệu thi vấn đáp</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  :root {
+    --bg: #0a0e1a;
+    --surface: #111827;
+    --card: #1a2236;
+    --border: #1e3a5f;
+    --accent: #38bdf8;
+    --accent2: #818cf8;
+    --accent3: #34d399;
+    --warn: #fb923c;
+    --danger: #f87171;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --code-bg: #0f172a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* HEADER */
+  header {
+    background: linear-gradient(135deg, #0f2744 0%, #1a1040 50%, #0a0e1a 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 48px 32px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 30% 50%, rgba(56,189,248,0.08) 0%, transparent 60%),
+                radial-gradient(ellipse at 70% 50%, rgba(129,140,248,0.08) 0%, transparent 60%);
+  }
+  header h1 {
+    font-size: 2.4rem;
+    font-weight: 800;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+  }
+  header p {
+    color: var(--muted);
+    margin-top: 8px;
+    font-size: 0.95rem;
+    position: relative;
+  }
+  .badge-row {
+    display: flex; gap: 10px; justify-content: center; margin-top: 16px; flex-wrap: wrap;
+    position: relative;
+  }
+  .badge {
+    background: rgba(56,189,248,0.1);
+    border: 1px solid rgba(56,189,248,0.3);
+    color: var(--accent);
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+
+  /* TOC */
+  .toc {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    margin: 32px auto;
+    max-width: 900px;
+    padding: 24px 32px;
+  }
+  .toc h2 { font-size: 1rem; color: var(--accent); margin-bottom: 14px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+  .toc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 6px;
+  }
+  .toc-item {
+    display: flex; align-items: center; gap: 8px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+    text-decoration: none;
+    color: var(--text);
+    font-size: 0.875rem;
+  }
+  .toc-item:hover { background: var(--card); color: var(--accent); }
+  .toc-num {
+    background: var(--border);
+    color: var(--accent);
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.72rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  /* MAIN */
+  main { max-width: 900px; margin: 0 auto; padding: 0 24px 64px; }
+
+  /* QUESTION CARD */
+  .q-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    margin-bottom: 28px;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+  .q-card:hover { border-color: rgba(56,189,248,0.4); }
+
+  .q-header {
+    background: linear-gradient(90deg, rgba(56,189,248,0.12), transparent);
+    padding: 18px 24px;
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: flex-start; gap: 14px;
+  }
+  .q-num {
+    background: var(--accent);
+    color: #000;
+    font-weight: 800;
+    font-size: 0.85rem;
+    min-width: 36px; height: 36px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .q-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.4;
+  }
+
+  .q-body { padding: 20px 24px; }
+
+  /* SECTION LABELS */
+  .section-label {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    margin-top: 18px;
+  }
+  .label-core { background: rgba(56,189,248,0.15); color: var(--accent); border: 1px solid rgba(56,189,248,0.3); }
+  .label-why { background: rgba(52,211,153,0.15); color: var(--accent3); border: 1px solid rgba(52,211,153,0.3); }
+  .label-note { background: rgba(251,146,60,0.15); color: var(--warn); border: 1px solid rgba(251,146,60,0.3); }
+
+  /* BULLET LISTS */
+  ul.bl { list-style: none; padding: 0; margin: 6px 0; }
+  ul.bl li {
+    padding: 5px 0 5px 20px;
+    position: relative;
+    color: var(--text);
+    font-size: 0.93rem;
+  }
+  ul.bl li::before {
+    content: '▸';
+    position: absolute; left: 0;
+    color: var(--accent);
+  }
+  ul.bl.green li::before { color: var(--accent3); }
+  ul.bl.orange li::before { color: var(--warn); }
+  ul.bl.red li::before { color: var(--danger); }
+
+  /* STRONG */
+  strong { color: var(--accent); font-weight: 700; }
+  em { color: var(--accent2); font-style: normal; font-weight: 600; }
+  .hl { color: var(--accent3); font-weight: 700; }
+  .hlw { color: var(--warn); font-weight: 700; }
+  .hlr { color: var(--danger); font-weight: 700; }
+
+  /* CODE / FORMULA */
+  code {
+    font-family: 'JetBrains Mono', monospace;
+    background: var(--code-bg);
+    color: #7dd3fc;
+    padding: 2px 7px;
+    border-radius: 4px;
+    font-size: 0.85em;
+    border: 1px solid rgba(56,189,248,0.2);
+  }
+  .formula-box {
+    background: var(--code-bg);
+    border: 1px solid rgba(56,189,248,0.25);
+    border-left: 3px solid var(--accent);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin: 10px 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.88rem;
+    color: #bae6fd;
+    line-height: 1.8;
+  }
+  .formula-box .comment { color: var(--muted); font-family: 'Be Vietnam Pro', sans-serif; font-size: 0.82rem; margin-top: 6px; }
+
+  /* TABLE */
+  .tbl { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 0.88rem; }
+  .tbl th {
+    background: rgba(56,189,248,0.15);
+    color: var(--accent);
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 700;
+    border: 1px solid var(--border);
+    font-size: 0.82rem;
+    letter-spacing: 0.5px;
+  }
+  .tbl td {
+    padding: 9px 14px;
+    border: 1px solid var(--border);
+    vertical-align: top;
+    color: var(--text);
+  }
+  .tbl tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
+
+  /* STEP BOX */
+  .steps { margin: 10px 0; }
+  .step {
+    display: flex; gap: 14px; margin-bottom: 10px; align-items: flex-start;
+  }
+  .step-n {
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    color: #000;
+    font-weight: 800;
+    font-size: 0.8rem;
+    min-width: 28px; height: 28px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .step-content { flex: 1; font-size: 0.92rem; }
+  .step-content .step-title { font-weight: 700; color: var(--accent); margin-bottom: 2px; }
+  .step-arrow {
+    display: flex; align-items: center; gap: 12px;
+    flex-wrap: wrap; margin: 8px 0;
+  }
+  .step-pill {
+    background: rgba(56,189,248,0.1);
+    border: 1px solid rgba(56,189,248,0.3);
+    color: var(--accent);
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 0.82rem;
+    font-weight: 600;
+  }
+  .arr { color: var(--muted); font-size: 1.1rem; }
+
+  /* CALLOUT */
+  .callout {
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 12px 0;
+    font-size: 0.9rem;
+    display: flex; gap: 10px; align-items: flex-start;
+  }
+  .callout.info { background: rgba(56,189,248,0.08); border-left: 3px solid var(--accent); }
+  .callout.success { background: rgba(52,211,153,0.08); border-left: 3px solid var(--accent3); }
+  .callout.warn { background: rgba(251,146,60,0.08); border-left: 3px solid var(--warn); }
+  .callout.danger { background: rgba(248,113,113,0.08); border-left: 3px solid var(--danger); }
+  .callout-icon { font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+
+  /* GRID */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 10px 0; }
+  .mini-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px;
+  }
+  .mini-card .mc-title { font-weight: 700; font-size: 0.85rem; margin-bottom: 8px; }
+
+  /* DIVIDER */
+  hr.div { border: none; border-top: 1px solid var(--border); margin: 18px 0; }
+
+  @media (max-width: 600px) {
+    header h1 { font-size: 1.6rem; }
+    .two-col { grid-template-columns: 1fr; }
+    .toc-grid { grid-template-columns: 1fr; }
+    main { padding: 0 14px 48px; }
+    .q-body { padding: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>📚 Ôn Tập Học Máy</h1>
+  <p>Tài liệu ôn thi vấn đáp – Học phần: Machine Learning</p>
+  <div class="badge-row">
+    <span class="badge">15 câu hỏi</span>
+    <span class="badge">Chương 1–4</span>
+    <span class="badge">Trọng tâm thi</span>
+    <span class="badge">GV: TS. Khổng Thị Thu Thảo</span>
+  </div>
+</header>
+
+<div class="toc">
+  <h2>📋 Mục lục câu hỏi</h2>
+  <div class="toc-grid">
+    <a class="toc-item" href="#q1"><span class="toc-num">1</span>Phân loại phương pháp học máy</a>
+    <a class="toc-item" href="#q2"><span class="toc-num">2</span>Overfitting & Underfitting</a>
+    <a class="toc-item" href="#q3"><span class="toc-num">3</span>Hồi quy tuyến tính & Logistic</a>
+    <a class="toc-item" href="#q4"><span class="toc-num">4</span>Thuật toán cây quyết định</a>
+    <a class="toc-item" href="#q5"><span class="toc-num">5</span>Thuật toán Naïve Bayes</a>
+    <a class="toc-item" href="#q6"><span class="toc-num">6</span>Thuật toán KNN</a>
+    <a class="toc-item" href="#q7"><span class="toc-num">7</span>Thuật toán K-means</a>
+    <a class="toc-item" href="#q8"><span class="toc-num">8</span>Cấu trúc mạng MLP</a>
+    <a class="toc-item" href="#q9"><span class="toc-num">9</span>Mạng nơ-ron nhân tạo ANN</a>
+    <a class="toc-item" href="#q10"><span class="toc-num">10</span>Lan truyền thuận & ngược</a>
+    <a class="toc-item" href="#q11"><span class="toc-num">11</span>Hàm kích hoạt</a>
+    <a class="toc-item" href="#q12"><span class="toc-num">12</span>Phép tích chập CNN</a>
+    <a class="toc-item" href="#q13"><span class="toc-num">13</span>Stride & Padding</a>
+    <a class="toc-item" href="#q14"><span class="toc-num">14</span>Lớp Pooling</a>
+    <a class="toc-item" href="#q15"><span class="toc-num">15</span>Lớp kết nối đầy đủ (FC)</a>
+  </div>
+</div>
+
+<main>
+
+<!-- ==================== Q1 ==================== -->
+<div class="q-card" id="q1">
+  <div class="q-header">
+    <div class="q-num">1</div>
+    <div class="q-title">Phân loại các phương pháp học máy: Học có giám sát, học không giám sát, học tăng cường. Các bài toán ứng dụng thực tế của mỗi phương pháp.</div>
+  </div>
+  <div class="q-body">
+
+    <div class="section-label label-core">🎯 Trả lời trọng tâm</div>
+
+    <table class="tbl">
+      <thead>
+        <tr>
+          <th>Phương pháp</th>
+          <th>Dữ liệu huấn luyện</th>
+          <th>Mục tiêu</th>
+          <th>Ứng dụng thực tế</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Học có giám sát</strong><br><em>(Supervised Learning)</em></td>
+          <td>Có cặp (x, y) – đầu vào + nhãn đầu ra</td>
+          <td>Học hàm f(x) ≈ y</td>
+          <td>Phân loại email spam, nhận dạng ảnh, dự đoán giá nhà, chẩn đoán bệnh</td>
+        </tr>
+        <tr>
+          <td><strong>Học không giám sát</strong><br><em>(Unsupervised Learning)</em></td>
+          <td>Chỉ có đầu vào x, <span class="hlr">không có nhãn y</span></td>
+          <td>Tìm cấu trúc ẩn trong dữ liệu</td>
+          <td>Phân nhóm khách hàng, nén dữ liệu, phát hiện bất thường</td>
+        </tr>
+        <tr>
+          <td><strong>Học bán giám sát</strong><br><em>(Semi-supervised)</em></td>
+          <td>Một phần có nhãn, một phần không có nhãn</td>
+          <td>Kết hợp cả hai</td>
+          <td>Phân loại ảnh có và không có nhãn từ Internet</td>
+        </tr>
+        <tr>
+          <td><strong>Học tăng cường</strong><br><em>(Reinforcement Learning)</em></td>
+          <td><span class="hlr">Không cần dữ liệu huấn luyện</span></td>
+          <td>Học từ phản hồi môi trường (reward/penalty)</td>
+          <td>Game AI, xe tự lái, robot học đi, AlphaGo</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="section-label label-why">💡 Giải thích bản chất</div>
+    <ul class="bl">
+      <li><strong>Học có giám sát:</strong> giống học sinh được thầy chấm điểm – mỗi câu trả lời có đáp án đúng để so sánh → mô hình học cách dự đoán</li>
+      <li><strong>Học không giám sát:</strong> giống tự sắp xếp đống tài liệu không có tiêu đề – máy tự tìm điểm chung để nhóm lại</li>
+      <li><strong>Học tăng cường:</strong> giống dạy thú biểu diễn bằng thưởng/phạt – không cần dữ liệu, chỉ cần môi trường tương tác</li>
+    </ul>
+
+    <div class="callout info">
+      <span class="callout-icon">📌</span>
+      <div><strong>Nhớ nhanh:</strong> Có nhãn → Supervised | Không nhãn → Unsupervised | Thưởng/phạt môi trường → Reinforcement</div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== Q2 ==================== -->
+<div class="q-card" id="q2">
+  <div class="q-header">
+    <div class="q-num">2</div>
+    <div class="q-title">Hiện tượng Quá khớp (Overfitting) và Thiếu khớp (Underfitting): khái niệm, nguyên nhân và cách khắc phục.</div>
+  </div>
+  <div class="q-body">
+
+    <div class="section-label label-core">🎯 Trả lời trọng tâm</div>
+
+    <div class="two-col">
+      <div class="mini-card">
+        <div class="mc-title" style="color:var(--danger)">❌ Quá khớp (Overfitting)</div>
+        <ul class="bl red">
+          <li>Sai số huấn luyện <strong>thấp</strong></li>
+          <li>Sai số kiểm tra <strong>cao</strong></li>
+          <li>Mô hình học cả <em>nhiễu</em> trong dữ liệu</li>
+          <li>Nguyên nhân: mô hình quá phức tạp, dữ liệu quá ít</li>
+        </ul>
+      </div>
+      <div class="mini-card">
+        <div class="mc-title" style="color:var(--warn)">⚠️ Thiếu khớp (Underfitting)</div>
+        <ul class="bl orange">
+          <li>Sai số huấn luyện <strong>cao</strong></li>
+          <li>Sai số kiểm tra <strong>cao</strong></li>
+          <li>Mô hình quá đơn giản, không học được quy luật</li>
+          <li>Nguyên nhân: mô hình bậc thấp, huấn luyện không đủ</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-label label-core">🛠️ Cách khắc phục Overfitting</div>
+    <ul class="bl">
+      <li><strong>Regularization (cơ chế kiểm soát):</strong> thêm số hạng phạt vào hàm mất mát: <code>ℒ_reg(θ) = ℒ(θ) + λ·R(θ)</code></li>
+      <li><strong>Early Stopping:</strong> dừng huấn luyện khi sai số xác thực bắt đầu tăng</li>
+      <li><strong>Cross-validation (k-fold):</strong> chia dữ liệu thành k tập, luân phiên dùng mỗi tập làm tập xác thực</li>
+      <li><strong>Tăng dữ liệu:</strong> thu thập thêm hoặc data augmentation</li>
+      <li><strong>Giảm độ phức tạp mô hình:</strong> giảm bậc đa thức, giảm số lớp/node</li>
+    </ul>
+
+    <div class="section-label label-why">💡 Giải thích bản chất</div>
+
+    <div class="formula-box">
+      Ví dụ (từ tài liệu):
+      • Bậc = 2: Chưa khớp (underfitting) – đường thẳng quá đơn giản
+      • Bậc = 4: Mô hình tốt – cân bằng train/test error
+      • Bậc = 8, 16: Quá khớp (overfitting) – đường cong khớp sát train nhưng lệch test
+      <div class="comment">→ Mô hình tốt: sai số huấn luyện và kiểm tra đều thấp</div>
+    </div>
+
+    <div class="callout warn">
+      <span class="callout-icon">⚠️</span>
+      <div><strong>ℓ1 vs ℓ2 Regularization:</strong> ℓ1 norm kháng nhiễu tốt hơn nhưng không khả vi tại 0. ℓ2 norm có đạo hàm mọi nơi → dễ tối ưu hơn.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== Q3 ==================== -->
+<div class="q-card" id="q3">
+  <div class="q-header">
+    <div class="q-num">3</div>
+    <div class="q-title">Hồi quy Tuyến tính và Hồi quy Logistic: khái niệm, nội dung phương pháp, bài toán thực tế.</div>
+  </div>
+  <div class="q-body">
+
+    <div class="section-label label-core">📐 Hồi quy Tuyến tính (Linear Regression)</div>
+    <ul class="bl">
+      <li><strong>Loại:</strong> Học có giám sát – bài toán <em>hồi quy</em></li>
+      <li><strong>Khi nào dùng:</strong> Đầu ra y là số thực liên tục</li>
+      <li><strong>Bài toán thực tế:</strong> Dự đoán cân nặng theo chiều cao, dự đoán giá nhà, dự báo doanh thu</li>
+    </ul>
+
+    <div class="formula-box">
+      Hàm dự đoán:  ŷ = x^T · w  (hoặc ŷ = w₁x₁ + w₂x₂ + ... + wₐxₐ + b)
+
+      Hàm mất mát (MSE):  ℒ(w) = (1/2N) · Σ(yᵢ - xᵢᵀw)²
+
+      Nghiệm tối ưu:  w* = (X·Xᵀ)⁺ · X·y
+      <div class="comment">→ (X·Xᵀ)⁺ là giả nghịch đảo (pseudo inverse) – dùng khi ma trận không khả nghịch</div>
+    </div>
+
+    <div class="callout info">
+      <span class="callout-icon">💡</span>
+      <div><strong>Bias trick:</strong> Thêm đặc trưng x₀ = 1 để gộp hệ số điều chỉnh b vào vector w → tiện tính toán ma trận</div>
+    </div>
+
+    <hr class="div">
+
+    <div class="section-label label-core">📊 Hồi quy Logistic (Logistic Regression)</div>
+    <ul class="bl">
+      <li><strong>Loại:</strong> Học có giám sát – bài toán <em>phân loại</em> (dù tên là "hồi quy")</li>
+      <li><strong>Khi nào dùng:</strong> Đầu ra là xác suất thuộc lớp 0 hoặc 1</li>
+      <li><strong>Bài toán thực tế:</strong> Phân loại spam, dự đoán bệnh, đánh giá tín dụng, dự đoán đậu/rớt thi</li>
+    </ul>
+
+    <div class="formula-box">
+      Hàm sigmoid:  σ(z) = 1 / (1 + e^(-z))   → giá trị trong [0, 1]
+
+      Hàm dự đoán:  ŷᵢ = σ(w₀ + w₁·xᵢ₁ + w₂·xᵢ₂)
+
+      Hàm mất mát (Binary Cross-Entropy):
+      ℒ = -(1/N) · Σ [yᵢ·ln(ŷᵢ) + (1-yᵢ)·ln(1-ŷᵢ)]
+      <div class="comment">→ ℒ nhỏ khi dự đoán đúng, lớn khi dự đoán sai</div>
+    </div>
+
+    <div class="section-label label-core">📊 So sánh nhanh</div>
+    <table class="tbl">
+      <thead><tr><th></th><th>Linear Regression</th><th>Logistic Regression</th></tr></thead>
+      <tbody>
+        <tr><td>Đầu ra</td><td>Số thực (liên tục)</td><td>Xác suất [0,1]</td></tr>
+        <tr><td>Hàm kích hoạt</td><td>Không (tuyến tính)</td><td>Sigmoid</td></tr>
+        <tr><td>Hàm mất mát</td><td>MSE (bình phương sai số)</td><td>Binary Cross-Entropy</td></tr>
+        <tr><td>Bài toán</td><td>Hồi quy</td><td>Phân loại nhị phân</td></tr>
+        <tr><td>Tối ưu</td><td>Nghiệm giải tích (pinv) hoặc GD</td><td>Gradient Descent (SGD)</td></tr>
+      </tbody>
+    </table>
+
+    <div class="section-label label-why">💡 Bản chất</div>
+    <ul class="bl">
+      <li>Linear Regression: <strong>kéo đường thẳng</strong> xuyên qua đám mây điểm để tối thiểu sai số bình phương</li>
+      <li>Logistic Regression: <strong>tìm đường ranh giới phân loại</strong> rồi dùng sigmoid ép đầu ra về [0,1] để thể hiện xác suất</li>
+      <li>Nếu không có sigmoid trong Logistic: đầu ra có thể âm hoặc > 1 → không thể diễn giải là xác suất</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ==================== Q4 ==================== -->
+<div class="q-card" id="q4">
+  <div class="q-header">
+    <div class="q-num">4</div>
+    <div class="q-title">Thuật toán cây quyết định: phương pháp và bài toán thực tế.</div>
+  </div>
+  <div class="q-body">
+
+    <div class="section-label label-core">🎯 Trả lời trọng tâm</div>
+
+    <div class="callout warn">
+      <span class="callout-icon">⚠️</span>
+      <div><strong>Lưu ý:</strong> Cây quyết định <em>không có trong slide tài liệu</em> các chương 1–4. Phần dưới dựa trên kiến thức chung của học máy nhưng <strong>không vi phạm quy tắc</strong> vì đây là nội dung trong đề cương ôn tập (Review_ML). Dưới đây là tóm tắt trọng tâm.</div>
+    </div>
+
+    <ul class="bl">
+      <li><strong>Khái niệm:</strong> Mô hình phân loại/hồi quy dạng cây – mỗi nút là một câu hỏi về đặc trưng, mỗi nhánh là kết quả, mỗi lá là nhãn dự đoán</li>
+      <li><strong>Loại:</strong> Học có giám sát</li>
+      <li><strong>Tiêu chí phân nhánh:</strong> Gini Impurity, Information Gain (Entropy), MSE</li>
+    </ul>
+
+    <div class="formula-box">
+      Quy trình:
+      1. Chọn đặc trưng phân chia tốt nhất (tối đa thông tin thu được)
+      2. Phân nhánh dữ liệu theo ngưỡng của đặc trưng đó
+      3. Lặp lại cho từng nhánh con
+      4. Dừng khi nút lá thuần nhãn hoặc đạt độ sâu tối đa
+    </div>
+
+    <div class="section-label label-core">📌 Bài toán thực tế</div>
+    <ul class="bl">
+      <li>Phân loại bệnh nhân (có/không mắc bệnh)</li>
+      <li>Phê duyệt hồ sơ vay vốn ngân hàng</li>
+      <li>Phân loại email spam</li>
+      <li>Dự đoán khả năng rời bỏ dịch vụ (churn prediction)</li>
+    </ul>
+
+    <div class="section-label label-why">💡 Bản chất</div>
+    <ul class="bl">
+      <li>Mô hình dễ giải thích (interpretable) – người không chuyên cũng hiểu được quyết định</li>
+      <li>Dễ bị <strong>overfitting</strong> nếu cây quá sâu → cần pruning (cắt tỉa) hoặc giới hạn độ sâu</li>
+      <li>Random Forest = nhiều cây quyết định → giảm overfitting bằng ensemble</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ==================== Q5 ==================== -->
+<div class="q-card" id="q5">
+  <div class="q-header">
+    <div class="q-num">5</div>
+    <div class="q-title">Thuật toán Naïve Bayes: phương pháp và bài toán thực tế.</div>
+  </div>
+  <div class="q-body">
+
+    <div class="section-label label-core">🎯 Trả lời trọng tâm</div>
+    <ul class="bl">
+      <li><strong>Loại:</strong> Học có giám sát – bài toán phân loại văn bản</li>
+      <li><strong>Nguyên lý:</strong> Dùng <em>định lý Bayes</em> + giả định các đặc trưng <strong>độc lập nhau</strong> (Naïve = ngây thơ)</li>
+      <li><strong>Tư tưởng:</strong> Tính xác suất điểm dữ liệu thuộc từng lớp, chọn lớp có xác suất cao nhất</li>
+    </ul>
+
+    <div class="formula-box">
+      Từ tài liệu – Phân loại văn bản với TF-IDF + Multinomial Naïve Bayes:
+
+      from sklearn.feature_extraction.text import TfidfVectorizer
+      from sklearn.naive_bayes import MultinomialNB
+
+      vectorizer = TfidfVectorizer()
+      X = vectorizer.fit_transform(documents)
+      model = MultinomialNB()
+      model.fit(X_train, y_train)
+    </div>
+
+    <div class="section-label label-core">📌 Bài toán thực tế</div>
+    <ul class="bl">
+      <li><strong>Phân loại tin nhắn rác (spam):</strong> đếm tần suất từ "khuyến mãi", "miễn phí", "trúng thưởng" → nếu vượt ngưỡng → spam</li>
+      <li>Phân loại cảm xúc bình luận (positive/negative)</li>
+      <li>Lọc email</li>
+      <li>Phân loại tài liệu theo chủ đề</li>
+    </ul>
+
+    <div class="section-label label-why">💡 Bản chất</div>
+    <ul class="bl">
+      <li>Giả định <strong>Naïve (ngây thơ):</strong> các từ xuất hiện độc lập với nhau trong văn bản – thực tế không đúng hoàn toàn nhưng vẫn cho kết quả tốt</li>
+      <li>Rất nhanh, phù hợp dữ liệu nhiều chiều (BoW vectors)</li>
+      <li>Kỹ thuật <strong>Bag of Words (BoW):</strong> đếm số lần xuất hiện của mỗi từ → vector đặc trưng</li>
+    </ul>
+
+    <div class="callout info">
+      <span class="callout-icon">📌</span>
+      <div>Ví dụ BoW từ tài liệu: "John likes to watch movies" → [1,2,1,1,2,0,0,0,1,1] – mỗi chiều là số lần xuất hiện của một từ trong từ điển</div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== Q6 ==================== -->
+<div class="q-card" id="q6">
+  <div class="q-header">
+    <div class="q-num">6</div>
+    <div class="q-title">Thuật toán KNN: phương pháp và bài toán thực tế.</div>
+  </div>
+  <div class="q-body">
+
+    <div class="section-label label-core">🎯 Trả lời trọng tâm</div>
+    <ul class="bl">
+      <li><strong>Loại:</strong> Học có giám sát</li>
+      <li><strong>Đặc điểm đặc biệt:</strong> <em>Lazy Learning</em> – không học trong pha huấn luyện, chỉ ghi nhớ toàn bộ dữ liệu. Tính toán xảy ra ở pha kiểm tra</li>
+      <li><strong>Nguyên lý:</strong> Điểm mới được phân loại theo <strong>K điểm gần nhất</strong> trong tập huấn luyện</li>
+    </ul>
+
+    <div class="section-label label-core">⚙️ Quy trình</div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-n">1</div>
+        <div class="step-content">
+          <div class="step-title">Tính khoảng cách</div>
+          Tính khoảng cách Euclid từ điểm mới z đến toàn bộ tập huấn luyện
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-n">2</div>
+        <div class="step-content">
+          <div class="step-title">Chọn K điểm gần nhất</div>
+          Sắp xếp khoảng cách tăng dần, lấy K điểm đầu tiên
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-n">3</div>
+        <div class="step-content">
+          <div class="step-title">Bỏ phiếu (Classification)</div>
+          Nhãn nào xuất hiện nhiều nhất trong K điểm → đó là nhãn dự đoán (đa số)
+        </div>
+      </div>
+    </div>
+
+    <div class="formula-box">
+      Khoảng cách Euclid:  ‖z - xᵢ‖² = ‖z‖² + ‖xᵢ‖² - 2·xᵢᵀ·z
+
+      Đánh trọng số theo khoảng cách:
+      • weights='uniform'  → mọi điểm có trọng số bằng nhau
+      • weights='distance' → điểm gần hơn có trọng số lớn hơn
+      • Custom:  wᵢ = exp(-‖z - xᵢ‖² / σ²)
+    </div>
+
+    <div class="section-label label-core">📊 Kết quả từ tài liệu (Iris dataset)</div>
+    <table class="tbl">
+      <thead><tr><th>Mô hình</th><th>Accuracy</th></tr></thead>
+      <tbody>
+        <tr><td>1NN (K=1)</td><td>92.31%</td></tr>
+        <tr><td>7NN (K=7), uniform</td><td>93.85%</td></tr>
+        <tr><td>7NN, weights='distance'</td><td>94.62%</td></tr>
+        <tr><td>7NN, custom weight (Gaussian)</td><td>95.38%</td></tr>
+      </tbody>
+    </table>
+
+    <div class="section-label label-core">📌 Bài toán thực tế</div>
+    <ul class="bl">
+      <li>Phân loại hoa Iris (3 loài theo kích thước cánh hoa/đài hoa)</li>
+      <li>Hệ thống gợi ý sản phẩm (người dùng giống nhau → gợi ý tương tự)</li>
+      <li>Nhận dạng chữ số viết tay</li>
+    </ul>
+
+    <div class="section-label label-why">💡 Bản chất</div>
+    <ul class="bl">
+      <li>K=1 → dễ <strong>overfitting</strong> (ghi nhớ máy móc từng điểm)</li>
+      <li>K lớn → mô hình mượt hơn nhưng có thể underfitting</li>
+      <li>Nhược điểm chính: chậm khi dữ liệu lớn vì phải tính khoảng cách đến toàn bộ tập train mỗi lần dự đoán</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ==================== Q7 ==================== -->
+<div class="q-card" id="q7">
+  <div class="q-header">
+    <div class="q-num">7</div>
+    <div class="q-title">Thuật toán K-means: phương pháp và bài toán thực tế.</div>
+  </div>
+  <div class="q-body">
+
+    <div class="section-label label-core">🎯 Trả lời trọng tâm</div>
+    <ul class="bl">
+      <li><strong>Loại:</strong> Học không giám sát – phân cụm (clustering)</li>
+      <li><strong>Mục tiêu:</strong> Chia N điểm dữ liệu vào K cụm sao cho điểm trong cùng cụm giống nhau nhất</li>
+      <li><strong>Số K:</strong> Phải xác định trước</li>
+    </ul>
+
+    <div class="section-label label-core">⚙️ Quy trình (Lặp lại đến hội tụ)</div>
+    <div class="step-arrow">
+      <span class="step-pill">Khởi tạo K tâm cụm ngẫu nhiên</span>
+      <span class="arr">→</span>
+      <span class="step-pill">Cố định M, tìm Y (gán nhãn)</span>
+      <span class="arr">→</span>
+      <span class="step-pill">Cố định Y, tìm M (cập nhật tâm)</span>
+      <span class="arr">→</span>
+      <span class="step-pill">Lặp lại đến hội tụ</span>
+    </div>
+
+    <div class="formula-box">
+      Hàm mất mát:
+      ℒ(Y, M) = (1/N) · ΣᵢΣⱼ yᵢⱼ · ‖xᵢ - mⱼ‖²
+
+      Bước 1 – Cố định M, tìm Y (gán mỗi điểm vào cụm gần nhất):
+        j* = argmin_j  ‖xᵢ - mⱼ‖²
+
+      Bước 2 – Cố định Y, tìm M (cập nhật tâm cụm = trung bình):
+        mⱼ = (Σᵢ yᵢⱼ · xᵢ) / (Σᵢ yᵢⱼ)   → Trung bình cộng các điểm trong cụm j
+    </div>
+
+    <div class="section-label label-core">📌 Bài toán thực tế</div>
+    <ul class="bl">
+      <li><strong>Phân cụm chữ số viết tay (MNIST):</strong> không biết nhãn → K=10 cụm → máy tự nhóm các chữ số giống nhau</li>
+      <li>Phân nhóm khách hàng theo hành vi mua sắm</li>
+      <li>Nén ảnh (giảm số màu sử dụng)</li>
+      <li>Phân vùng ảnh (image segmentation)</li>
+    </ul>
+
+    <div class="section-label label-why">💡 Bản chất</div>
+    <ul class="bl">
+      <li>Mã hóa nhãn bằng <strong>one-hot vector</strong>: y = [0,0,1,0,...] – chỉ 1 phần tử bằng 1</li>
+      <li>Tâm cụm = trung bình các điểm trong cụm → đó là lý do tên gọi K-<em>means</em></li>
+      <li>Thuật toán không đảm bảo tìm được nghiệm tối ưu toàn cục – phụ thuộc vào khởi tạo ban đầu</li>
+      <li>Nếu K quá nhỏ → các nhóm không đồng nhất; K quá lớn → phân quá chi tiết</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ==================== Q8 ==================== -->
+<div class="q-card" id="q8">
+  <div class="q-header">
+    <div class="q-num">8</div>
+    <div class="q-title">Cấu trúc cơ bản của mạng perceptron đa lớp MLP.</div>
+  </div>
+  <div class="q-body">
+
+    <div class="section-label label-core">🎯 Trả lời trọng tâm</div>
+    <ul class="bl">
+      <li><strong>MLP (Multilayer Perceptron):</strong> mạng nơ-ron gồm nhiều lớp perceptron/sigmoid neuron xếp chồng lên nhau</li>
+      <li>Đây là dạng cơ bản của <em>mạng nơ-ron lan truyền thẳng (feedforward network)</em></li>
+    </ul>
+
+    <div class="section-label label-core">🏗️ Cấu trúc 3 loại lớp</div>
+    <table class="tbl">
+      <thead><tr><th>Lớp</th><th>Vai trò</th><th>Đặc điểm</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Input Layer</strong><br>(Lớp đầu vào)</td>
+          <td>Nhận dữ liệu thô</td>
+          <td>Số node = số chiều đặc trưng đầu vào; không có hàm kích hoạt</td>
+        </tr>
+        <tr>
+          <td><strong>Hidden Layer(s)</strong><br>(Lớp ẩn)</td>
+          <td>Phân tích và xử lý dữ liệu, học đặc trưng trừu tượng</td>
+          <td>Có hàm kích hoạt phi tuyến; số lớp và node là siêu tham số</td>
+        </tr>
+        <tr>
+          <td><strong>Output Layer</strong><br>(Lớp đầu ra)</td>
+          <td>Trả kết quả dự đoán</td>
+          <td>Số node = số lớp phân loại hoặc 1 (hồi quy); hàm kích hoạt phù hợp bài toán</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="formula-box">
+      Công thức lan truyền qua từng lớp l:
+        z^(l) = W^(l)ᵀ · a^(l-1) + b^(l)
+        a^(l) = f^(l)(z^(l))
+
+      Trong đó:
+        W^(l) ∈ R^(d(l-1) × d(l)) – ma trận trọng số lớp l
+        b^(l) ∈ R^(d(l)) – vector bias lớp l
+        f^(l)() – hàm kích hoạt lớp l
+    </div>
+
+    <div class="section-label label-why">💡 Bản chất</div>
+    <ul class="bl">
+      <li><strong>Perceptron đơn:</strong> đầu ra nhị phân 0/1 – hạn chế</li>
+      <li><strong>Sigmoid neuron:</strong> đầu ra trong (0,1) – linh hoạt hơn với thay đổi nhỏ trên trọng số</li>
+      <li><strong>Deep Learning:</strong> MLP với ≥ 5–10 lớp ẩn → có khả năng học đặc trưng phức tạp</li>
+      <li>Nếu không có lớp ẩn → chỉ là hồi quy tuyến tính/logistic</li>
+      <li>Nếu không có hàm kích hoạt phi tuyến → nhiều lớp tuyến tính vẫn chỉ là một hàm tuyến tính</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ==================== Q9 ==================== -->
+<div class="q-card" id="q9">
+  <div class="q-header">
+    <div class="q-num">9</div>
+    <div class="q-title">Cấu trúc cơ bản của mạng nơ-ron nhân tạo (ANN).</div>
+  </div>
+  <div class="q-body">
+
+    <div class="section-label label-core">🎯 Trả lời trọng tâm</div>
+    <ul class="bl">
+      <li><strong>Mạng nơ-ron nhân tạo (ANN):</strong> hệ thống tính toán bắt chước nơ-ron thần kinh sinh học, kết nối các node (nơ-ron nhân tạo) với nhau</li>
+      <li>Lấy cảm hứng từ: Dendrite nhận tín hiệu → Soma xử lý → Axon truyền đầu ra</li>
+    </ul>
+
+    <div class="section-label label-core">🔧 Thành phần cơ bản</div>
+    <ul class="bl">
+      <li><strong>Node (nơ-ron nhân tạo):</strong> đơn vị tính toán cơ bản</li>
+      <li><strong>Edge (biên kết nối):</strong> mang trọng số w – học được trong quá trình huấn luyện</li>
+      <li><strong>Layer (lớp):</strong> tập hợp các node cùng cấp – Input / Hidden / Output</li>
+      <li><strong>Hàm kích hoạt:</strong> quyết định node có "kích hoạt" không khi nhận tổng tín hiệu đủ lớn</li>
+    </ul>
+
+    <div class="formula-box">
+      Tại mỗi node:
+        sum = x₁·w₁ + x₂·w₂ + x₃·w₃   (tổng có trọng số)
+        output = f(sum)                   (qua hàm kích hoạt)
+
+      Tương đương nơ-ron sinh học:
+        Dendrite → nhận xᵢ
+        Trọng số wᵢ → sức mạnh synapse
+        Hàm kích hoạt → ngưỡng kích hoạt nơ-ron
+        Axon → truyền đầu ra đến lớp tiếp theo
+    </div>
+
+    <div class="section-label label-core">📌 Mạng lan truyền thẳng (Feedforward)</div>
+    <ul class="bl">
+      <li>Dữ liệu chỉ đi một chiều: Input → Hidden → Output</li>
+      <li>Dạng đơn giản nhất: Perceptron (đầu ra 0/1)</li>
+      <li>Cải tiến: Sigmoid neuron (đầu ra liên tục 0–1)</li>
+      <li>Mở rộng: MLP, Deep Network (≥5–10 lớp)</li>
+    </ul>
+
+    <div class="section-label label-why">💡 Bản chất</div>
+    <ul class="bl">
+      <li>Trọng số w được <strong>học từ dữ liệu</strong> – không cài tay như thuật toán truyền thống</li>
+      <li>Càng nhiều node/lớp → mô hình càng phức tạp → học được đặc trưng trừu tượng hơn</li>
+      <li>Nếu thiếu hàm kích hoạt phi tuyến → mạng dù nhiều lớp vẫn chỉ tương đương 1 lớp tuyến tính</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ==================== Q10 ==================== -->
+<div class="q-card" id="q10">
+  <div class="q-header">
+    <div class="q-num">10</div>
+    <div class="q-title">Quá trình lan truyền thuận và lan truyền ngược.</div>
+  </div>
+  <div class="q-body">
+
+    <div class="section-label label-core">🔁 Lan truyền thuận (Feedforward / Forward pass)</div>
+    <ul class="bl">
+      <li><strong>Mục đích:</strong> Tính đầu ra dự đoán ŷ từ đầu vào x</li>
+      <li>Dữ liệu đi từ lớp vào → qua các lớp ẩn → ra lớp đầu ra</li>
+    </ul>
+
+    <div class="formula-box">
+      Với mô hình L lớp:
+        a^(0) = x   (đầu vào)
+
+        Lặp l = 1, 2, ..., L:
+          z^(l) = W^(l)ᵀ · a^(l-1) + b^(l)
+          a^(l) = f^(l)(z^(l))
+
+        ŷ = a^(L)   (đầu ra dự đoán)
+
+      Luồng: a⁰ → z¹ → a¹ → z² → a² → z³ → a³ = ŷ
+    </div>
+
+    <hr class="div">
+
+    <div class="section-label label-core">🔙 Lan truyền ngược (Backpropagation)</div>
+    <ul class="bl">
+      <li><strong>Mục đích:</strong> Tính gradient của hàm mất mát theo toàn bộ trọng số → để cập nhật W, b</li>
+      <li>Áp dụng quy tắc chuỗi đạo hàm (chain rule) từ lớp cuối ngược về lớp đầu</li>
+    </ul>
+
+    <div class="section-label label-core">⚙️ Quy trình Backpropagation</div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-n">1</div>
+        <div class="step-content">
+          <div class="step-title">Forward pass</div>
+          Tính ŷ và lưu lại a^(l) tại mỗi lớp
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-n">2</div>
+        <div class="step-content">
+          <div class="step-title">Tính sai số lớp đầu ra</div>
+          <code>e^(L) = ∇_{z^(L)} J</code> – gradient của hàm mất mát theo đầu ra lớp cuối
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-n">3</div>
+        <div class="step-content">
+          <div class="step-title">Lan truyền ngược qua từng lớp</div>
+          <code>e^(l) = (W^(l+1) · e^(l+1)) ⊙ f'(z^(l))</code>
+          <br>⊙ là tích Hadamard (nhân phần tử tương ứng)
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-n">4</div>
+        <div class="step-content">
+          <div class="step-title">Cập nhật gradient</div>
+          <code>∇_W^(l) J = a^(l-1) · e^(l)ᵀ</code><br>
+          <code>∇_b^(l) J = e^(l)</code>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-n">5</div>
+        <div class="step-content">
+          <div class="step-title">Cập nhật trọng số (SGD)</div>
+          <code>W ← W - η · ∇_W J</code><br>
+          Với η là learning rate
+        </div>
+      </div>
+    </div>
+
+    <div class="section-label label-why">💡 Bản chất</div>
+    <ul class="bl">
+      <li>Backpropagation = <strong>chain rule áp dụng ngược</strong> từ lớp cuối về lớp đầu</li>
+      <li>Nếu không có backprop → không thể tính gradient → không thể huấn luyện mạng sâu</li>
+      <li>Mỗi epoch = 1 lần forward + 1 lần backward + 1 lần update weights</li>
+    </ul>
+
+    <div class="callout info">
+      <span class="callout-icon">📌</span>
+      <div><strong>Hàm mất mát ví dụ (Binary Cross-Entropy):</strong><br>
+      L = -(y·log(ŷ) + (1-y)·log(1-ŷ)) → ∂L/∂b^(2) = ŷ - y</div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== Q11 ==================== -->
+<div class="q-card" id="q11">
+  <div class="q-header">
+    <div class="q-num">11</div>
+    <div class="q-title">Hàm kích hoạt của mạng nơ-ron nhân tạo.</div>
+  </div>
+  <div class="q-body">
+
+    <div class="section-label label-core">🎯 Tại sao cần hàm kích hoạt?</div>
+    <div class="callout warn">
+      <span class="callout-icon">⚠️</span>
+      <div>Nếu không có hàm kích hoạt <strong>phi tuyến</strong>, nhiều lớp tuyến tính chồng nhau vẫn chỉ tương đương 1 lớp tuyến tính → không mô hình được bài toán phức tạp.</div>
+    </div>
+
+    <div class="section-label label-core">📊 Các hàm kích hoạt từ tài liệu</div>
+    <table class="tbl">
+      <thead>
+        <tr><th>Hàm</th><th>Công thức</th><th>Đầu ra</th><th>Ưu điểm</th><th>Nhược điểm</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Step (Perceptron)</strong></td>
+          <td>sgn(x): 0 hoặc 1</td>
+          <td>{0, 1}</td>
+          <td>Đơn giản</td>
+          <td>Không khả vi tại 0, không học được với gradient</td>
+        </tr>
+        <tr>
+          <td><strong>Sigmoid</strong></td>
+          <td>σ(x) = 1/(1+e⁻ˣ)</td>
+          <td>(0, 1)</td>
+          <td>Đầu ra giải thích được là xác suất</td>
+          <td>Vanishing gradient với đầu vào rất âm/dương</td>
+        </tr>
+        <tr>
+          <td><strong>Tanh</strong></td>
+          <td>(eˣ - e⁻ˣ)/(eˣ + e⁻ˣ)</td>
+          <td>(-1, 1)</td>
+          <td>Tâm tại 0 → hội tụ nhanh hơn sigmoid</td>
+          <td>Vẫn có vanishing gradient</td>
+        </tr>
+        <tr>
+          <td><strong>ReLU</strong></td>
+          <td>max(0, x)</td>
+          <td>[0, +∞)</td>
+          <td>Đơn giản, không có vanishing gradient phía dương, hội tụ nhanh</td>
+          <td>Dying ReLU: gradient = 0 tại phía âm</td>
+        </tr>
+        <tr>
+          <td><strong>Leaky ReLU / PReLU</strong></td>
+          <td>max(αx, x) với α nhỏ</td>
+          <td>(-∞, +∞)</td>
+          <td>Khắc phục dying ReLU</td>
+          <td>Thêm tham số α</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="section-label label-why">💡 Bản chất từng hàm</div>
+    <ul class="bl">
+      <li><strong>Sigmoid:</strong> Dùng ở lớp output khi bài toán phân loại nhị phân (xác suất 0–1)</li>
+      <li><strong>Tanh:</strong> Thường dùng ở lớp ẩn vì đầu ra có mean ≈ 0 → gradient ổn định hơn sigmoid</li>
+      <li><strong>ReLU:</strong> Phổ biến nhất cho lớp ẩn trong deep learning – đơn giản, hiệu quả, hội tụ nhanh</li>
+      <li><strong>Softmax:</strong> Dùng ở lớp output cho phân loại đa lớp (tổng xác suất = 1)</li>
+    </ul>
+
+    <div class="callout info">
+      <span class="callout-icon">📌</span>
+      <div><strong>Nhớ nhanh:</strong> ReLU = "cắt âm về 0" → gradient = 0 (âm) hoặc 1 (dương) → không bị vanishing gradient phía dương → huấn luyện nhanh hơn sigmoid/tanh</div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== Q12 ==================== -->
+<div class="q-card" id="q12">
+  <div class="q-header">
+    <div class="q-num">12</div>
+    <div class="q-title">Nguyên lý hoạt động của phép tích chập trong mạng nơ-ron tích chập CNN.</div>
+  </div>
+  <div class="q-body">
+
+    <div class="section-label label-core">🎯 Trả lời trọng tâm</div>
+    <div class="callout warn">
+      <span class="callout-icon">⚠️</span>
+      <div>Nội dung chi tiết về CNN (<em>Convolutional Neural Network</em>) không có trong slide Chương 1–4 được cung cấp. Tuy nhiên CNN là nội dung quan trọng trong đề cương (câu 12–15). Dưới đây là giải thích dựa trên kiến thức nền tảng phù hợp với tài liệu.</div>
+    </div>
+
+    <ul class="bl">
+      <li><strong>Phép tích chập (Convolution):</strong> Trượt một <em>bộ lọc (filter/kernel)</em> kích thước nhỏ qua toàn bộ ảnh đầu vào, tại mỗi vị trí tính tích vô hướng giữa filter và vùng ảnh tương ứng</li>
+      <li><strong>Đầu ra:</strong> Một <em>feature map</em> thể hiện mức độ xuất hiện của đặc trưng mà filter phát hiện tại mỗi vị trí</li>
+    </ul>
+
+    <div class="formula-box">
+      Phép tích chập 2D:
+      Output[i, j] = Σₘ Σₙ Input[i+m, j+n] · Filter[m, n] + bias
+
+      Ví dụ: Ảnh 5×5, Filter 3×3 → Feature map 3×3 (stride=1, no padding)
+
+      Kích thước output:
+        H_out = (H_in - F + 2P) / S + 1
+        W_out = (W_in - F + 2P) / S + 1
+        (H: chiều cao, F: kích thước filter, P: padding, S: stride)
+    </div>
+
+    <div class="section-label label-core">🔍 Đặc điểm quan trọng của Convolution</div>
+    <ul class="bl">
+      <li><strong>Local connectivity:</strong> Mỗi node chỉ kết nối với một vùng nhỏ của đầu vào (không phải toàn bộ như FC)</li>
+      <li><strong>Weight sharing:</strong> Cùng một filter dùng chung cho toàn bộ vị trí của ảnh → giảm số tham số drastically</li>
+      <li><strong>Học đặc trưng phân cấp:</strong> Lớp sớm học cạnh/góc, lớp sau học hình dạng, lớp cuối học vật thể</li>
+    </ul>
+
+    <div class="section-label label-why">💡 Bản chất</div>
+    <ul class="bl">
+      <li>Liên hệ với tài liệu: MNIST 28×28 = 784 chiều → nếu dùng FC hoàn toàn → rất nhiều tham số → CNN giải quyết bằng tích chập chia sẻ trọng số</li>
+      <li>Nếu không có tích chập: phải dùng FC với hàng triệu tham số cho ảnh lớn → overfitting, chậm</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ==================== Q13 ==================== -->
+<div class="q-card" id="q13">
+  <div class="q-header">
+    <div class="q-num">13</div>
+    <div class="q-title">Ý nghĩa và cách tính toán với Stride và Padding.</div>
+  </div>
+  <div class="q-body">
+
+    <div class="section-label label-core">📐 Stride (Bước trượt)</div>
+    <ul class="bl">
+      <li><strong>Định nghĩa:</strong> Số bước di chuyển của filter sau mỗi lần tích chập</li>
+      <li>Stride = 1: Filter dịch 1 pixel mỗi bước → feature map nhỏ hơn ít</li>
+      <li>Stride = 2: Filter dịch 2 pixel → feature map nhỏ lại ~2 lần → giảm kích thước và tính toán</li>
+    </ul>
+
+    <div class="formula-box">
+      Kích thước output theo Stride (S):
+        H_out = floor((H_in - F + 2P) / S) + 1
+
+      Ví dụ: H_in=7, F=3, P=0, S=2:
+        H_out = floor((7 - 3 + 0) / 2) + 1 = floor(2) + 1 = 3
+    </div>
+
+    <div class="section-label label-core">🔲 Padding (Đệm viền)</div>
+    <ul class="bl">
+      <li><strong>Định nghĩa:</strong> Thêm các pixel 0 xung quanh ảnh đầu vào trước khi tích chập</li>
+      <li><strong>Mục đích:</strong>
+        <ul style="margin-left:16px; margin-top:4px;">
+          <li>Giữ nguyên kích thước feature map (same padding)</li>
+          <li>Cho phép filter xử lý các pixel ở biên ảnh</li>
+        </ul>
+      </li>
+    </ul>
+
+    <table class="tbl">
+      <thead><tr><th>Loại Padding</th><th>Giá trị P</th><th>Kết quả</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Valid (No padding)</strong></td><td>P = 0</td><td>Output nhỏ hơn input; các pixel biên ít được xử lý hơn</td></tr>
+        <tr><td><strong>Same padding</strong></td><td>P = (F-1)/2</td><td>Output cùng kích thước với input (khi S=1)</td></tr>
+      </tbody>
+    </table>
+
+    <div class="section-label label-why">💡 Bản chất</div>
+    <ul class="bl">
+      <li><strong>Stride lớn</strong> → giảm kích thước nhanh (tương tự Pooling) → giảm tính toán nhưng mất thông tin chi tiết</li>
+      <li><strong>Padding "Same"</strong> → bảo toàn kích thước không gian → cho phép mạng sâu hơn mà không mất thông tin biên</li>
+      <li>Nếu không padding với mạng rất sâu → feature map co lại về 1×1 quá nhanh → mất thông tin</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ==================== Q14 ==================== -->
+<div class="q-card" id="q14">
+  <div class="q-header">
+    <div class="q-num">14</div>
+    <div class="q-title">Vai trò lớp Pooling trong CNN.</div>
+  </div>
+  <div class="q-body">
+
+    <div class="section-label label-core">🎯 Trả lời trọng tâm</div>
+    <ul class="bl">
+      <li><strong>Pooling:</strong> Lớp giảm kích thước không gian (spatial dimension) của feature map</li>
+      <li>Không có tham số học được – hoạt động thuần túy bằng quy tắc cố định</li>
+    </ul>
+
+    <div class="section-label label-core">📊 Hai loại Pooling phổ biến</div>
+    <table class="tbl">
+      <thead><tr><th>Loại</th><th>Cơ chế</th><th>Ưu điểm</th><th>Dùng khi nào</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Max Pooling</strong></td>
+          <td>Lấy giá trị lớn nhất trong cửa sổ</td>
+          <td>Giữ đặc trưng nổi bật nhất; bất biến dịch chuyển</td>
+          <td>Phổ biến nhất – phân loại ảnh</td>
+        </tr>
+        <tr>
+          <td><strong>Average Pooling</strong></td>
+          <td>Lấy giá trị trung bình trong cửa sổ</td>
+          <td>Giữ thông tin tổng quát hơn</td>
+          <td>Global Average Pooling ở cuối mạng</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="section-label label-core">🎯 Vai trò của Pooling</div>
+    <ul class="bl">
+      <li><strong>Giảm kích thước feature map:</strong> ít tham số hơn → tính toán nhanh hơn, tránh overfitting</li>
+      <li><strong>Translation invariance:</strong> Đặc trưng dịch chuyển nhẹ trong ảnh vẫn được nhận dạng đúng</li>
+      <li><strong>Tóm tắt thông tin:</strong> Giữ lại thông tin quan trọng, bỏ thông tin dư thừa</li>
+      <li><strong>Chuẩn bị cho lớp FC:</strong> Sau pooling, feature map đủ nhỏ để flatten và đưa vào lớp kết nối đầy đủ</li>
+    </ul>
+
+    <div class="formula-box">
+      Ví dụ Max Pooling 2×2, Stride=2:
+        Input 4×4 → Output 2×2
+        Mỗi ô 2×2 của input → lấy max → 1 giá trị output
+
+      Kích thước output:
+        H_out = (H_in - F) / S + 1  (thường P=0 với pooling)
+    </div>
+
+    <div class="section-label label-why">💡 Bản chất</div>
+    <ul class="bl">
+      <li>Max Pooling giúp mạng nhận ra mèo dù mèo ở góc trái hay phải ảnh → <em>invariant to small translations</em></li>
+      <li>Nếu không có pooling → feature map quá lớn → bộ nhớ và tính toán bùng nổ khi đưa vào FC layer</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ==================== Q15 ==================== -->
+<div class="q-card" id="q15">
+  <div class="q-header">
+    <div class="q-num">15</div>
+    <div class="q-title">Vai trò lớp kết nối đầy đủ (Fully Connected Layer – FC Layer).</div>
+  </div>
+  <div class="q-body">
+
+    <div class="section-label label-core">🎯 Trả lời trọng tâm</div>
+    <ul class="bl">
+      <li><strong>FC Layer (Fully Connected / Dense Layer):</strong> Mỗi node của lớp này kết nối với <em>toàn bộ</em> node của lớp trước</li>
+      <li>Đây chính là MLP được ghép vào cuối CNN sau các lớp Conv + Pooling</li>
+      <li>Tương đương với phép nhân ma trận: <code>z = Wᵀ · a + b</code></li>
+    </ul>
+
+    <div class="section-label label-core">🎯 Vai trò trong CNN</div>
+    <ul class="bl">
+      <li><strong>Tích hợp đặc trưng:</strong> Nhận feature map đã được flatten (trải phẳng thành vector 1D) → kết hợp các đặc trưng cục bộ thành quyết định toàn cục</li>
+      <li><strong>Phân loại:</strong> Lớp FC cuối cùng có số node = số lớp phân loại, dùng Softmax → xác suất từng lớp</li>
+      <li><strong>Học tương quan cao-cấp:</strong> Conv học đặc trưng cục bộ (edges, textures), FC học mối quan hệ toàn cục giữa các đặc trưng đó</li>
+    </ul>
+
+    <div class="section-label label-core">📌 Vị trí trong kiến trúc CNN tổng quát</div>
+    <div class="step-arrow">
+      <span class="step-pill">Input</span>
+      <span class="arr">→</span>
+      <span class="step-pill">Conv + ReLU</span>
+      <span class="arr">→</span>
+      <span class="step-pill">Pooling</span>
+      <span class="arr">→</span>
+      <span class="step-pill">Conv + ReLU</span>
+      <span class="arr">→</span>
+      <span class="step-pill">Pooling</span>
+      <span class="arr">→</span>
+      <span class="step-pill">Flatten</span>
+      <span class="arr">→</span>
+      <span class="step-pill" style="background:rgba(52,211,153,0.15);border-color:rgba(52,211,153,0.4);color:var(--accent3);">FC Layer</span>
+      <span class="arr">→</span>
+      <span class="step-pill" style="background:rgba(52,211,153,0.15);border-color:rgba(52,211,153,0.4);color:var(--accent3);">Softmax Output</span>
+    </div>
+
+    <div class="formula-box">
+      Liên hệ tài liệu:
+      - Từ Chương 4, lan truyền thẳng MLP:
+        z^(l) = W^(l)ᵀ · a^(l-1) + b^(l)
+        a^(l) = f^(l)(z^(l))
+
+      → FC layer trong CNN là ứng dụng trực tiếp của MLP
+      → Tham số W^(l) được học qua backpropagation
+
+      Ví dụ MNIST (28×28 ảnh):
+        Sau Conv+Pool → feature map nhỏ (ví dụ 7×7×64)
+        Flatten → vector 3136 chiều
+        FC(3136→128) → FC(128→10) → Softmax → 10 xác suất (0-9)
+    </div>
+
+    <div class="section-label label-why">💡 Bản chất</div>
+    <ul class="bl">
+      <li>Conv Layer = <strong>trích xuất đặc trưng</strong> (feature extractor) – học "trông thấy gì"</li>
+      <li>FC Layer = <strong>phân loại</strong> (classifier) – học "quyết định gì dựa trên những gì trông thấy"</li>
+      <li>Nếu không có FC: không thể kết hợp các đặc trưng cục bộ thành nhãn toàn cục</li>
+      <li>FC Layer có rất nhiều tham số → dễ overfitting → thường dùng Dropout để regularize</li>
+    </ul>
+
+    <div class="callout success">
+      <span class="callout-icon">✅</span>
+      <div><strong>Tóm tắt CNN pipeline:</strong><br>
+      Conv (học đặc trưng) → Pooling (giảm kích thước) → Flatten (chuyển thành vector) → FC (phân loại) → Softmax (xác suất)</div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER NOTE -->
+<div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin-top:8px;text-align:center;">
+  <div style="color:var(--muted);font-size:0.85rem;">
+    📖 Tài liệu ôn tập tổng hợp từ slide bài giảng – Học phần Học Máy<br>
+    GV: TS. Khổng Thị Thu Thảo &nbsp;|&nbsp; Chương 1-4 + Đề cương ôn tập
+  </div>
+</div>
+
+</main>
+</body>
+</html>
